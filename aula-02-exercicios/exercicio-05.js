@@ -10,20 +10,21 @@
 // Obs.: O volume não pode ser menor que zero e maior que cem; só se pode trocar para um canal que já esteja na lista de canais.
 
 class Televisor {
-    constructor(fabricante, modelo) {
+    constructor(fabricante, modelo, listaCanais, volume) {
         this.fabricante = fabricante
         this.modelo = modelo
-        this.canalAtual = 3
-        this.listaCanais = []
-        this.volume = 50
+        this.listaCanais = listaCanais
+        this.canalAtual = listaCanais.length > 0 ? listaCanais[0] : undefined
+        this.volume = volume > 100 ? 100 : (volume < 0 ? 0 : volume)
     }
-    aumentarVolume() { if (this.volume <= 90) this.volume += 10 }
-    diminuirVolume() { if (this.volume >= 10) this.volume -= 10 }
-    trocarCanal(codigoCanal) { if (this.listaCanais.includes(codigoCanal)) this.canalAtual = codigoCanal }
-    sintonizarCanal(codigoCanal) { if (!(this.listaCanais.includes(codigoCanal))) this.listaCanais.push(codigoCanal) }
+    aumentarVolume() { this.volume = this.volume >= 90 ? 100 : this.volume + 10 }
+    diminuirVolume() { this.volume = this.volume <= 10 ? 0 : this.volume - 10 }
+    canalEstaSintonizado(codigoCanal) { return this.listaCanais.includes(codigoCanal) }
+    trocarCanal(codigoCanal) { if (this.canalEstaSintonizado(codigoCanal)) this.canalAtual = codigoCanal }
+    sintonizarCanal(codigoCanal) { if (!(this.canalEstaSintonizado(codigoCanal))) this.listaCanais.push(codigoCanal) }
 }
 
-const novoTelevisor = new Televisor('Sony', 'Trinitron 29"', 3, 50)
+const novoTelevisor = new Televisor('Sony', 'Trinitron 29"', [2, 3, 4], 110)
 
 novoTelevisor.sintonizarCanal(5)
 novoTelevisor.sintonizarCanal(5)

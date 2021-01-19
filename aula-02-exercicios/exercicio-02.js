@@ -19,11 +19,12 @@ class Bola {
         return (4 * 3.14 * this.raio * this.raio).toFixed(2)
     }
     getVolume() {
-        return ((4 * 3.14 * this.raio * this.raio * this.raio) / 3).toFixed(2)
+        return (this.getArea() * (this.raio / 3)).toFixed(2)
     }
 }
 
-const novaBola = new Bola('azul', 10);
+const novaBola = new Bola('azul', 10)
 
+console.log("Cor: " + novaBola.getColor())
 console.log("Área: " + novaBola.getArea())
 console.log("Volume: " + novaBola.getVolume())
