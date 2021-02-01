@@ -9,7 +9,7 @@ class Funcionario {
         this.horasTrabalhadas = horasTrabalhadas
         this.salario = salario
     }
-    getSalarioMes(mes) {
+    getSalarioMes() {
         return this.horasTrabalhadas.qtdHoras * this.salario.valorHora
     }
 }

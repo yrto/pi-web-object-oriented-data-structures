@@ -11,11 +11,11 @@ class Cliente {
         this.idade = idade
         this.email = email
     }
-    getInfo() {
+    printInfo() {
         console.log(`Nome: ${this.nome}\nIdade: ${this.idade}\nE-mail: ${this.email}`)
     }
 }
 
 const novoCliente = new Cliente('Ayrton', 29, 'ayrton@email.com')
 
-novoCliente.getInfo()
+novoCliente.printInfo()
