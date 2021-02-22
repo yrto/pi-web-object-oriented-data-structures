@@ -1,8 +1,10 @@
 const _throw = msg => { throw msg }
 const doNothing = () => { return }
+
 const inputTypes = ['text', 'email', 'password', 'date', 'color', 'number']
 const tableTags = ['thead', 'tbody', 'tfoot', 'tr', 'th']
 const imgExtensions = ['.png', '.jpg', '.gif']
+
 const isString = string => typeof string === 'string' ? string : _throw(`deve ser uma string`)
 const isStringArray = array => array.map(valor => typeof valor === 'string' ? valor : _throw(`deve ser uma array de strings`))
 const isObject = object => typeof object === 'object' ? object : _throw(`deve ser uma um objeto`)
